@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,36 +8,41 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body class="d-flex flex-column min-vh-100">
 
-<div class="container py-5">
-    
-    <h2 class="text-center mb-4">Reservas de Acomodações</h2>
+    <div class="container py-5">
 
-    <table class="table table-striped table-bordered shadow">
-        <thead class="table-dark">
-    <tr>
-        <th>ID</th>
-        <th>Cliente</th>
-        <th>E-mail</th>
-        <th>Telefone</th>
-        <th>Acomodação</th>
-        <th>Início</th>
-        <th>Fim</th>
-        <th>Valor</th>
-        <th>Método</th>
-        <th>Parcelas</th>
-        <th>Valor Parcela</th>
-        <th>Ações</th>
-    </tr>
-</thead>
+        <h2 class="text-center mb-4">Reservas de Acomodações</h2>
 
-        <tbody id="listaReservas"></tbody>
-    </table>
+        <table class="table table-striped table-bordered shadow">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Cliente</th>
+                    <th>E-mail</th>
+                    <th>Telefone</th>
+                    <th>Acomodação</th>
+                    <th>Início</th>
+                    <th>Fim</th>
+                    <th>Valor</th>
+                    <th>Método</th>
+                    <th>Parcelas</th>
+                    <th>Valor Parcela</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <div class="col-md-4 mb-3">
+                <a href="admin_index.html" class="btn btn-dark w-100 py-3 fs-5">Voltar</a>
+            </div>
 
-</div>
+            <tbody id="listaReservas"></tbody>
+        </table>
 
-<script src="../js/admin_reservas.js"></script>
+    </div>
+
+    <script src="../js/admin_reservas.js"></script>
 
 </body>
+
 </html>

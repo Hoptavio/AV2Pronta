@@ -15,8 +15,15 @@ $data_inicio = $_POST['data_inicio'];
 $data_fim = $_POST['data_fim'];
 
 $metodo_pagamento = $_POST['metodo_pagamento'];
-$parcelas = $_POST['parcelas'] ?: null;
-$valor_parcela = $_POST['valor_parcela'] ?: null;
+
+// Se for PIX, sempre 1 parcela
+if ($metodo_pagamento === 'pix') {
+    $parcelas = 1;
+} else {
+    $parcelas = !empty($_POST['parcelas']) ? intval($_POST['parcelas']) : 1;
+}
+
+// Calcular valor por parcela (será calculado após obter o valor total)
 
 // Recalcular valor total
 $stmt = $con->prepare("SELECT preco FROM acomodacoes WHERE id = ?");
@@ -26,7 +33,17 @@ $preco = $stmt->get_result()->fetch_assoc()['preco'];
 $stmt->close();
 
 $days = (strtotime($data_fim) - strtotime($data_inicio)) / (60*60*24);
+
+// Validar que o número de dias é positivo
+if ($days <= 0) {
+    echo "Erro: A data de fim deve ser posterior à data de início.";
+    exit;
+}
+
 $valor_total = $days * $preco;
+
+// Calcular valor por parcela
+$valor_parcela = $valor_total / $parcelas;
 
 $stmt = $con->prepare("
 UPDATE reservas SET 
@@ -37,7 +54,7 @@ WHERE id=?
 ");
 
 $stmt->bind_param(
-    "isssssdssis",
+    "isssssdsddi",
     $id_acomodacao, $nome, $email, $telefone,
     $data_inicio, $data_fim, $valor_total,
     $metodo_pagamento, $parcelas, $valor_parcela,

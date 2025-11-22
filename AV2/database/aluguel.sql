@@ -1,3 +1,12 @@
+-- Remove o banco de dados se ele já existir
+DROP DATABASE IF EXISTS `aluguel`;
+
+-- Cria o banco de dados
+CREATE DATABASE `aluguel` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+-- Seleciona o banco de dados para uso
+USE `aluguel`;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -8,7 +17,7 @@ CREATE TABLE `acomodacoes` (
   `descricao` text NOT NULL,
   `preco` decimal(10,2) NOT NULL,
   `imagem` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `acomodacoes` (`id`, `nome`, `descricao`, `preco`, `imagem`) VALUES
 (1, 'Chalé à Beira-Mar', 'Encantador chalé com vista para o mar e acesso privativo à praia.', 350.00, 'img/chale.jpg'),
@@ -54,12 +63,15 @@ CREATE TABLE `reservas` (
   `data_inicio` date NOT NULL,
   `data_fim` date NOT NULL,
   `valor_total` decimal(10,2) NOT NULL,
+  `metodo_pagamento` varchar(20) DEFAULT NULL,
+  `parcelas` int(11) DEFAULT NULL,
+  `valor_parcela` decimal(10,2) DEFAULT NULL,
   `data_reserva` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `reservas` (`id`, `id_acomodacao`, `nome_cliente`, `email_cliente`, `telefone_cliente`, `data_inicio`, `data_fim`, `valor_total`, `data_reserva`) VALUES
-(3, 1, 'thiago', 'thiago.24204708360042@faeterj-rio.edu.br', '21545454', '2025-11-20', '2025-11-21', 350.00, '2025-11-16 19:56:45'),
-(5, 1, 'otavio', 'otavio@gmail.com', '21', '2025-11-21', '2025-11-22', 350.00, '2025-11-16 20:04:09');
+INSERT INTO `reservas` (`id`, `id_acomodacao`, `nome_cliente`, `email_cliente`, `telefone_cliente`, `data_inicio`, `data_fim`, `valor_total`, `metodo_pagamento`, `parcelas`, `valor_parcela`, `data_reserva`) VALUES
+(3, 1, 'thiago', 'thiago.24204708360042@faeterj-rio.edu.br', '21545454', '2025-11-20', '2025-11-21', 350.00, 'pix', 1, 350.00, '2025-11-16 19:56:45'),
+(5, 1, 'otavio', 'otavio@gmail.com', '21', '2025-11-21', '2025-11-22', 350.00, 'cartao', 3, 116.67, '2025-11-16 20:04:09');
 
 CREATE TABLE `reservas_aulas` (
   `id` int(11) NOT NULL,
@@ -95,12 +107,15 @@ INSERT INTO `reservas_experiencias` (`id`, `id_experiencia`, `nome_cliente`, `em
 
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
+  `nome` varchar(150) NOT NULL,
   `email` varchar(150) NOT NULL,
-  `senha` varchar(100) NOT NULL
+  `senha` varchar(100) NOT NULL,
+  `data_nascimento` date DEFAULT NULL,
+  `identificador` varchar(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `usuarios` (`id`, `email`, `senha`) VALUES
-(1, 'admin@admin.com', '1234');
+INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `data_nascimento`, `identificador`) VALUES
+(1, 'Administrador', 'admin@admin.com', '1234', '1990-01-01', 'A');
 
 ALTER TABLE `acomodacoes`
   ADD PRIMARY KEY (`id`);

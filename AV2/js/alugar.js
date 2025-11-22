@@ -106,6 +106,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (this.value === "pix") {
             areaPix.classList.remove("d-none");
+            // PIX sempre 1 parcela
+            parcelasEl.value = "1";
+            atualizarParcelas();
         } else if (this.value === "cartao") {
             areaCartao.classList.remove("d-none");
             atualizarParcelas();
