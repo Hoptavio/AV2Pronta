@@ -16,16 +16,12 @@ $data_fim = $_POST['data_fim'];
 
 $metodo_pagamento = $_POST['metodo_pagamento'];
 
-// Se for PIX, sempre 1 parcela
 if ($metodo_pagamento === 'pix') {
     $parcelas = 1;
 } else {
     $parcelas = !empty($_POST['parcelas']) ? intval($_POST['parcelas']) : 1;
 }
 
-// Calcular valor por parcela (será calculado após obter o valor total)
-
-// Recalcular valor total
 $stmt = $con->prepare("SELECT preco FROM acomodacoes WHERE id = ?");
 $stmt->bind_param("i", $id_acomodacao);
 $stmt->execute();
@@ -34,7 +30,6 @@ $stmt->close();
 
 $days = (strtotime($data_fim) - strtotime($data_inicio)) / (60*60*24);
 
-// Validar que o número de dias é positivo
 if ($days <= 0) {
     echo "Erro: A data de fim deve ser posterior à data de início.";
     exit;

@@ -131,7 +131,7 @@ while ($row = $res->fetch_assoc()) {
 </div>
 
 <script>
-// Recalcular valor total quando mudar acomodação ou datas
+
 function recalcularValor() {
     const select = document.getElementById('id_acomodacao');
     const preco = parseFloat(select.options[select.selectedIndex].dataset.preco);
@@ -146,7 +146,7 @@ function recalcularValor() {
         if (dias > 0) {
             const valorTotal = dias * preco;
             document.getElementById('valor_total').value = valorTotal.toFixed(2);
-            calcularValorParcela(); // Recalcular valor da parcela
+            calcularValorParcela();
         } else {
             document.getElementById('valor_total').value = '0.00';
             if (dataInicio && dataFim) {
@@ -156,7 +156,7 @@ function recalcularValor() {
     }
 }
 
-// Calcular valor por parcela
+
 function calcularValorParcela() {
     const valorTotal = parseFloat(document.getElementById('valor_total').value) || 0;
     const parcelas = parseInt(document.getElementById('parcelas').value) || 1;
@@ -164,18 +164,18 @@ function calcularValorParcela() {
     document.getElementById('valor_parcela').value = valorParcela.toFixed(2);
 }
 
-// Controlar parcelas baseado no método de pagamento
+
 function controlarMetodoPagamento() {
     const metodoPagamento = document.getElementById('metodo_pagamento').value;
     const parcelasInput = document.getElementById('parcelas');
     
     if (metodoPagamento === 'pix') {
-        // PIX sempre 1 parcela
+
         parcelasInput.value = 1;
         parcelasInput.readOnly = true;
         parcelasInput.style.backgroundColor = '#e9ecef';
     } else {
-        // Cartão permite múltiplas parcelas
+
         parcelasInput.readOnly = false;
         parcelasInput.style.backgroundColor = '';
         if (parcelasInput.value < 1) {
@@ -185,7 +185,7 @@ function controlarMetodoPagamento() {
     calcularValorParcela();
 }
 
-// Validar formulário antes de enviar
+
 document.getElementById('formEditar').addEventListener('submit', function(e) {
     const dataInicio = document.getElementById('data_inicio').value;
     const dataFim = document.getElementById('data_fim').value;
@@ -210,14 +210,14 @@ document.getElementById('formEditar').addEventListener('submit', function(e) {
     }
 });
 
-// Event listeners
+
 document.getElementById('id_acomodacao').addEventListener('change', recalcularValor);
 document.getElementById('data_inicio').addEventListener('change', recalcularValor);
 document.getElementById('data_fim').addEventListener('change', recalcularValor);
 document.getElementById('metodo_pagamento').addEventListener('change', controlarMetodoPagamento);
 document.getElementById('parcelas').addEventListener('change', calcularValorParcela);
 
-// Inicializar ao carregar a página
+
 recalcularValor();
 controlarMetodoPagamento();
 </script>

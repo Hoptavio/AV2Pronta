@@ -11,7 +11,7 @@ $telefone = $_POST['telefone_cliente'];
 $id_aula = intval($_POST['id_aula']);
 $qtd = intval($_POST['quantidade']);
 
-// pega preço real
+
 $stmt = $con->prepare("SELECT preco FROM aulas WHERE id=?");
 $stmt->bind_param("i", $id_aula);
 $stmt->execute();
@@ -20,7 +20,7 @@ $stmt->close();
 
 $valor_total = $preco * $qtd;
 
-// atualiza
+
 $stmt = $con->prepare("UPDATE reservas_aulas SET id_aula=?, nome_cliente=?, email_cliente=?, telefone_cliente=?, quantidade=?, valor_total=? WHERE id=?");
 $stmt->bind_param("isssidi", $id_aula, $nome, $email, $telefone, $qtd, $valor_total, $id);
 $stmt->execute();

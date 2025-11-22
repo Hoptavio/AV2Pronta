@@ -66,12 +66,13 @@ CREATE TABLE `reservas` (
   `metodo_pagamento` varchar(20) DEFAULT NULL,
   `parcelas` int(11) DEFAULT NULL,
   `valor_parcela` decimal(10,2) DEFAULT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
   `data_reserva` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `reservas` (`id`, `id_acomodacao`, `nome_cliente`, `email_cliente`, `telefone_cliente`, `data_inicio`, `data_fim`, `valor_total`, `metodo_pagamento`, `parcelas`, `valor_parcela`, `data_reserva`) VALUES
-(3, 1, 'thiago', 'thiago.24204708360042@faeterj-rio.edu.br', '21545454', '2025-11-20', '2025-11-21', 350.00, 'pix', 1, 350.00, '2025-11-16 19:56:45'),
-(5, 1, 'otavio', 'otavio@gmail.com', '21', '2025-11-21', '2025-11-22', 350.00, 'cartao', 3, 116.67, '2025-11-16 20:04:09');
+INSERT INTO `reservas` (`id`, `id_acomodacao`, `nome_cliente`, `email_cliente`, `telefone_cliente`, `data_inicio`, `data_fim`, `valor_total`, `metodo_pagamento`, `parcelas`, `valor_parcela`, `id_usuario`, `data_reserva`) VALUES
+(3, 1, 'thiago', 'thiago.24204708360042@faeterj-rio.edu.br', '21545454', '2025-11-20', '2025-11-21', 350.00, 'pix', 1, 350.00, NULL, '2025-11-16 19:56:45'),
+(5, 1, 'otavio', 'otavio@gmail.com', '21', '2025-11-21', '2025-11-22', 350.00, 'cartao', 3, 116.67, NULL, '2025-11-16 20:04:09');
 
 CREATE TABLE `reservas_aulas` (
   `id` int(11) NOT NULL,
@@ -81,12 +82,13 @@ CREATE TABLE `reservas_aulas` (
   `telefone_cliente` varchar(30) DEFAULT NULL,
   `quantidade` int(11) NOT NULL,
   `valor_total` decimal(10,2) NOT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
   `data_reserva` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `reservas_aulas` (`id`, `id_aula`, `nome_cliente`, `email_cliente`, `telefone_cliente`, `quantidade`, `valor_total`, `data_reserva`) VALUES
-(4, 5, 'otavio', 'otavio@gmail.com', '21', 1, 150.00, '2025-11-16 20:23:07'),
-(5, 1, 'otavio', 'otavio@gmail.com', '214', 1, 90.00, '2025-11-16 20:23:44');
+INSERT INTO `reservas_aulas` (`id`, `id_aula`, `nome_cliente`, `email_cliente`, `telefone_cliente`, `quantidade`, `valor_total`, `id_usuario`, `data_reserva`) VALUES
+(4, 5, 'otavio', 'otavio@gmail.com', '21', 1, 150.00, NULL, '2025-11-16 20:23:07'),
+(5, 1, 'otavio', 'otavio@gmail.com', '214', 1, 90.00, NULL, '2025-11-16 20:23:44');
 
 CREATE TABLE `reservas_experiencias` (
   `id` int(11) NOT NULL,
@@ -96,14 +98,15 @@ CREATE TABLE `reservas_experiencias` (
   `telefone_cliente` varchar(30) DEFAULT NULL,
   `quantidade` int(11) NOT NULL,
   `valor_total` decimal(10,2) NOT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
   `data_reserva` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `reservas_experiencias` (`id`, `id_experiencia`, `nome_cliente`, `email_cliente`, `telefone_cliente`, `quantidade`, `valor_total`, `data_reserva`) VALUES
-(4, 1, 'otavio', 'otavio@gmail.com', '21', 1, 150.00, '2025-11-16 20:04:24'),
-(5, 1, 'otavio', 'otavio@gmail.com', '21', 1, 150.00, '2025-11-16 20:22:17'),
-(6, 2, 'otavio', 'otavio@gmail.com', '21', 1, 80.00, '2025-11-16 20:24:49'),
-(7, 2, 'thiago', 'thiagofariastec@gmail.com', '21', 1, 80.00, '2025-11-16 20:25:13');
+INSERT INTO `reservas_experiencias` (`id`, `id_experiencia`, `nome_cliente`, `email_cliente`, `telefone_cliente`, `quantidade`, `valor_total`, `id_usuario`, `data_reserva`) VALUES
+(4, 1, 'otavio', 'otavio@gmail.com', '21', 1, 150.00, NULL, '2025-11-16 20:04:24'),
+(5, 1, 'otavio', 'otavio@gmail.com', '21', 1, 150.00, NULL, '2025-11-16 20:22:17'),
+(6, 2, 'otavio', 'otavio@gmail.com', '21', 1, 80.00, NULL, '2025-11-16 20:24:49'),
+(7, 2, 'thiago', 'thiagofariastec@gmail.com', '21', 1, 80.00, NULL, '2025-11-16 20:25:13');
 
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
@@ -115,7 +118,11 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `data_nascimento`, `identificador`) VALUES
-(1, 'Administrador', 'admin@admin.com', '1234', '1990-01-01', 'A');
+(1, 'Administrador', 'admin@admin.com', '1234', '1990-01-01', 'A'),
+(2, 'João Silva', 'joao@email.com', '1234', '1995-05-15', 'U'),
+(3, 'Maria Santos', 'maria@email.com', '1234', '1988-08-20', 'U'),
+(4, 'Pedro Oliveira', 'pedro@email.com', '1234', '1992-03-10', 'U'),
+(5, 'Ana Costa', 'ana@email.com', '1234', '1990-11-25', 'A');
 
 ALTER TABLE `acomodacoes`
   ADD PRIMARY KEY (`id`);
@@ -128,14 +135,17 @@ ALTER TABLE `experiencias`
 
 ALTER TABLE `reservas`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_acomodacao` (`id_acomodacao`);
+  ADD KEY `id_acomodacao` (`id_acomodacao`),
+  ADD KEY `id_usuario` (`id_usuario`);
 
 ALTER TABLE `reservas_aulas`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_usuario` (`id_usuario`);
 
 ALTER TABLE `reservas_experiencias`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_experiencia` (`id_experiencia`);
+  ADD KEY `id_experiencia` (`id_experiencia`),
+  ADD KEY `id_usuario` (`id_usuario`);
 
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
@@ -159,11 +169,17 @@ ALTER TABLE `reservas_experiencias`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 ALTER TABLE `reservas`
-  ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`id_acomodacao`) REFERENCES `acomodacoes` (`id`);
+  ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`id_acomodacao`) REFERENCES `acomodacoes` (`id`),
+  ADD CONSTRAINT `reservas_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`);
+
+ALTER TABLE `reservas_aulas`
+  ADD CONSTRAINT `reservas_aulas_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`);
 
 ALTER TABLE `reservas_experiencias`
-  ADD CONSTRAINT `reservas_experiencias_ibfk_1` FOREIGN KEY (`id_experiencia`) REFERENCES `experiencias` (`id`);
+  ADD CONSTRAINT `reservas_experiencias_ibfk_1` FOREIGN KEY (`id_experiencia`) REFERENCES `experiencias` (`id`),
+  ADD CONSTRAINT `reservas_experiencias_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`);
+
 COMMIT;

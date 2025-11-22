@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/carrossel.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/carrossel.js" defer></script>
+    <title>Alugel Maneiro - Serviços</title>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <?php include 'navbar.php'; ?>
+
+    <div class="main-carousel">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                    class="active"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://i.pinimg.com/736x/ef/b5/e1/efb5e1eb66bf41dc03e4ffd37f6059db.jpg"
+                        class="d-block w-100" alt="Cristo Redentor" style="height: 500px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Visite os melhores pontos turisticos do Rio de Janeiro</h3>
+                        <p>Descubra passeios incríveis e momentos únicos em destinos paradisíacos.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/82/13/92/821392f814e3a830f3a31f2220242bf2.jpg"
+                        class="d-block w-100" alt="Passeio de barco" style="height: 500px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Aventuras Inesquecíveis</h3>
+                        <p>Passeios de barco, trilhas ecológicas e muito mais.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/1200x/cc/53/06/cc5306727725943c503082319409850a.jpg"
+                        class="d-block w-100" alt="Cabana na floresta" style="height: 500px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Conforto e Beleza</h3>
+                        <p>Hospede-se nos locais mais incríveis do mundo.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+
+
+    <div class="container flex-grow-1">
+        <h1 class="page-header">Serviços para Sua Viagem</h1>
+        <p class="page-subtitle">Encontre aulas, guias e serviços especializados para tornar sua estadia ainda melhor
+        </p>
+
+
+        <div class="card-container">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd" class="card-img-top"
+                    alt="Aula de dança">
+                <div class="card-body">
+                    <h5 class="card-title">Treino com personal profissional</h5>
+                    <p class="card-text">Treino com ajuda de um preparador de atletas profissional.</p>
+                    <p class="price">R$ 90,00 / hora</p>
+                    <a href="detalhes.html?id=1&title=Treino%20com%20personal%20profissional&desc=Treino%20com%20ajuda%20de%20um%20preparador%20de%20atletas%20profissional.&price=R$%2090,00%20/%20hora&img=https://images.unsplash.com/photo-1517838277536-f5f99be501cd&target=aula_pagar.html"
+                        class="btn btn-primary">Ver Detalhes</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136" class="card-img-top"
+                    alt="Aula de culinária">
+                <div class="card-body">
+                    <h5 class="card-title">Aula de Culinária Regional</h5>
+                    <p class="card-text">Descubra os segredos da gastronomia local com chefs experientes.</p>
+                    <p class="price">R$ 120,00 / pessoa</p>
+                    <a href="detalhes.html?id=2&title=Aula%20de%20Culinária%20Regional&desc=Descubra%20os%20segredos%20da%20gastronomia%20local%20com%20chefs%20experientes.&price=R$%20120,00%20/%20pessoa&img=https://images.unsplash.com/photo-1556909114-f6e7ad7d3136&target=aula_pagar.html"
+                        class="btn btn-primary">Ver Detalhes</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://plus.unsplash.com/premium_photo-1694558052227-e66fda33c9f9?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    class="card-img-top" alt="Aula de dança">
+                <div class="card-body">
+                    <h5 class="card-title">Aula de dança</h5>
+                    <p class="card-text">Movimente o corpo em uma gratificante aula de dança.</p>
+                    <p class="price">R$ 60,00 / dia</p>
+                    <a href="detalhes.html?id=3&title=Aula%20de%20dança&desc=Movimente%20o%20corpo%20em%20uma%20gratificante%20aula%20de%20dança.&price=R$%2060,00%20/%20dia&img=https://plus.unsplash.com/premium_photo-1694558052227-e66fda33c9f9?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&target=aula_pagar.html"
+                        class="btn btn-primary">Ver Detalhes</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b" class="card-img-top"
+                    alt="Aula de yoga">
+                <div class="card-body">
+                    <h5 class="card-title">Aula de Yoga na Natureza</h5>
+                    <p class="card-text">Pratique yoga em locais paradisíacos com instrutores certificados.</p>
+                    <p class="price">R$ 70,00 / aula</p>
+                    <a href="detalhes.html?id=4&title=Aula%20de%20Yoga%20na%20Natureza&desc=Pratique%20yoga%20em%20locais%20paradisíacos%20com%20instrutores%20certificados.&price=R$%2070,00%20/%20aula&img=https://images.unsplash.com/photo-1544367567-0f2fcb009e0b&target=aula_pagar.html"
+                        class="btn btn-primary">Ver Detalhes</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1659700547307-6db624dc0cb4?q=80&w=550&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    class="card-img-top" alt="Massagem relaxante">
+                <div class="card-body">
+                    <h5 class="card-title">Rainha da bateria</h5>
+                    <p class="card-text">Sinta na pele e aprenda a ser uma Rainha da bateria.</p>
+                    <p class="price">R$ 150,00 / sessão</p>
+                    <a href="detalhes.html?id=5&title=Rainha%20da%20bateria&desc=Sinta%20na%20pele%20e%20aprenda%20a%20ser%20uma%20Rainha%20da%20bateria.&price=R$%20150,00%20/%20sessão&img=https://images.unsplash.com/photo-1659700547307-6db624dc0cb4?q=80&w=550&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&target=aula_pagar.html"
+                        class="btn btn-primary">Ver Detalhes</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://plus.unsplash.com/premium_photo-1663054300534-3be5c4c61ae3?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    class="card-img-top" alt="Fotografia profissional">
+                <div class="card-body">
+                    <h5 class="card-title">Sessão de Fotografia</h5>
+                    <p class="card-text">Registre momentos especiais com fotógrafos profissionais.</p>
+                    <p class="price">R$ 140,00 / sessão</p>
+                    <a href="detalhes.html?id=6&title=Sessão%20de%20Fotografia&desc=Registre%20momentos%20especiais%20com%20fotógrafos%20profissionais.&price=R$%20140,00%20/%20sessão&img=https://plus.unsplash.com/premium_photo-1663054300534-3be5c4c61ae3?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&target=aula_pagar.html"
+                        class="btn btn-primary">Ver Detalhes</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <h2 class="section-title">Serviços Disponíveis</h2>
+
+
+        <div class="banner">
+            <button class="arrow-left control" aria-label="Previous image">◀</button>
+            <button class="arrow-right control" aria-label="Next Image">▶</button>
+
+            <div class="bannerBox">
+                <div class="banners">
+                    <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd" alt="Treino com personal"
+                        class="atual item">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136" alt="Aula de culinária"
+                        class="item">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b" alt="Aula de yoga"
+                        class="item">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48" alt="Academia" class="item">
+                    <img src="https://plus.unsplash.com/premium_photo-1663054300534-3be5c4c61ae3?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Fotografia profissional" class="item">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="bg-dark text-light mt-5 py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Alugel Maneiro</h5>
+                    <p>Encontre a acomodação perfeita para você!</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p>&copy; <span id="current-year">2024</span> Alugel Maneiro. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

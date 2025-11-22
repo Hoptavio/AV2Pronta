@@ -1,39 +1,32 @@
 <?php
 require "conexao.php";
+require "session.php";
+verificarLogin();
 
-$id          = $_POST['id_acomodacao'];
-$nome        = $_POST['nome'];
-$email       = $_POST['email'];
-$telefone    = $_POST['telefone'];
+$usuario = obterUsuario();
+
+$id_acomodacao = $_POST['id_acomodacao'];
+$telefone = $_POST['telefone'];
 $data_inicio = $_POST['data_inicio'];
-$data_fim    = $_POST['data_fim'];
-$valor       = $_POST['valor_total'];
+$data_fim = $_POST['data_fim'];
+$valor = $_POST['valor_total'];
+$pagamento = $_POST['metodo_pagamento'];
 
-$pagamento   = $_POST['metodo_pagamento'];
-
-// Se for PIX, sempre 1 parcela
 if ($pagamento === 'pix') {
     $parcelas = 1;
 } else {
-    $parcelas = !empty($_POST['parcelas']) ? intval($_POST['parcelas']) : 1;
+    $parcelas = $_POST['parcelas'];
 }
 
-// Calcular valor por parcela
 $valor_parcela = $valor / $parcelas;
 
-$sql = "INSERT INTO reservas
-(id_acomodacao, nome_cliente, email_cliente, telefone_cliente, data_inicio, data_fim, valor_total, metodo_pagamento, parcelas, valor_parcela)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO reservas (id_acomodacao, nome_cliente, email_cliente, telefone_cliente, 
+        data_inicio, data_fim, valor_total, metodo_pagamento, parcelas, valor_parcela, id_usuario)
+        VALUES ($id_acomodacao, '{$usuario['nome']}', '{$usuario['email']}', '$telefone', '$data_inicio', '$data_fim', 
+        $valor, '$pagamento', $parcelas, $valor_parcela, {$usuario['id']})";
 
-$stmt = $con->prepare($sql);
-
-$stmt->bind_param("isssssdsddi",
-    $id, $nome, $email, $telefone, $data_inicio, $data_fim, $valor,
-    $pagamento, $parcelas, $valor_parcela
-);
-
-if ($stmt->execute()) {
-    echo "<script>alert('Reserva concluída com sucesso!'); window.location.href='../html/index.html';</script>";
+if ($con->query($sql)) {
+    echo "<script>alert('Reserva concluída com sucesso!'); window.location.href='../html/index.php';</script>";
 } else {
     echo "Erro ao reservar: " . $con->error;
 }

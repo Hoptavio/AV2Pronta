@@ -3,7 +3,7 @@ require "conexao.php";
 
 $id = $_GET['id'];
 
-// Busca acomodação
+
 $sql = "SELECT * FROM acomodacoes WHERE id = $id";
 $result = $con->query($sql);
 $acomodacao = $result->fetch_assoc();
@@ -75,13 +75,13 @@ $acomodacao = $result->fetch_assoc();
             </select>
         </div>
 
-        <!-- PIX -->
+
         <div id="area_pix" class="p-3 border rounded d-none">
             <p class="fw-bold text-success">Chave PIX: aluguel@empresa.com</p>
             <img src="../img/qrcode_exemplo.png" width="180">
         </div>
 
-        <!-- CARTÃO -->
+
         <div id="area_cartao" class="d-none mt-3">
 
             <div class="mb-3">

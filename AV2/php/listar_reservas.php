@@ -1,16 +1,17 @@
 <?php
 require "conexao.php";
 
-$sql = "SELECT r.*, a.nome AS nome_acomodacao FROM reservas r JOIN acomodacoes a ON a.id = r.id_acomodacao
-ORDER BY r.id DESC
-";
+$sql = "SELECT r.*, a.nome as nome_acomodacao 
+        FROM reservas r 
+        JOIN acomodacoes a ON r.id_acomodacao = a.id 
+        ORDER BY r.id DESC";
 
-$res = $con->query($sql);
+$result = $con->query($sql);
 
-$dados = [];
-
-while ($row = $res->fetch_assoc()) {
-    $dados[] = $row;
+$reservas = [];
+while ($row = $result->fetch_assoc()) {
+    $reservas[] = $row;
 }
 
-echo json_encode($dados);
+echo json_encode($reservas);
+?>

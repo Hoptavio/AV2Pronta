@@ -1,36 +1,23 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "aluguel");
+require "conexao.php";
+require "session.php";
+verificarLogin();
 
-if ($conn->connect_error) {
-    die("Erro de conexão: " . $conn->connect_error);
-}
+$usuario = obterUsuario();
 
-$nome = $_POST['nome'];
-$email = $_POST['email'];
+$id_experiencia = $_POST['id_experiencia'];
 $telefone = $_POST['telefone'];
-$id_experiencia = $_POST['experiencia'];
-$quantidade = $_POST['pessoas'];
-$total = $_POST['total'];
+$quantidade = $_POST['quantidade'];
+$valor_total = $_POST['valor_total'];
 
-$metodo = $_POST['metodo_pagamento'];
-$parcelas = $_POST['parcelas'] ?? 1;
+$sql = "INSERT INTO reservas_experiencias (id_experiencia, nome_cliente, email_cliente, telefone_cliente, 
+        quantidade, valor_total, id_usuario)
+        VALUES ($id_experiencia, '{$usuario['nome']}', '{$usuario['email']}', '$telefone', 
+        $quantidade, $valor_total, {$usuario['id']})";
 
-$sql = "INSERT INTO reservas_experiencias
-(id_experiencia, nome_cliente, email_cliente, telefone_cliente, quantidade, valor_total)
-VALUES (?, ?, ?, ?, ?, ?)";
-
-$stmt = $conn->prepare($sql);
-$stmt->bind_param(
-    "isssid",
-    $id_experiencia, $nome, $email, $telefone, $quantidade, $total
-);
-
-if ($stmt->execute()) {
-    echo "OK";
+if ($con->query($sql)) {
+    echo "<script>alert('Reserva de experiência concluída!'); window.location.href='../html/index.php';</script>";
 } else {
-    echo "Erro ao registrar: " . $stmt->error;
+    echo "Erro: " . $con->error;
 }
-
-$stmt->close();
-$conn->close();
 ?>

@@ -1,50 +1,37 @@
 document.addEventListener("DOMContentLoaded", function () {
-
     const selectAcomodacao = document.getElementById("select_acomodacao");
     const idField = document.getElementById("id_acomodacao");
     const precoField = document.getElementById("preco");
     const titulo = document.getElementById("titulo");
-
     const inicioEl = document.getElementById("inicio");
     const fimEl = document.getElementById("fim");
     const valorEl = document.getElementById("valor");
-
     const metodoEl = document.getElementById("metodo_pagamento");
     const areaPix = document.getElementById("area_pix");
     const areaCartao = document.getElementById("area_cartao");
     const parcelasEl = document.getElementById("parcelas");
     const valorParcelaEl = document.getElementById("valor_parcela");
 
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", "../php/listar_acomodacoes.php", true);
+    fetch("../php/listar_acomodacoes.php")
+        .then(response => response.json())
+        .then(lista => {
+            let html = `<option value="">Selecione...</option>`;
 
-    xhr.onload = function () {
-        const lista = JSON.parse(this.responseText);
-        let html = `<option value="">Selecione...</option>`;
+            lista.forEach(a => {
+                html += `<option value="${a.id}" data-preco="${a.preco}" data-nome="${a.nome}">
+                            ${a.nome} — R$ ${a.preco}
+                         </option>`;
+            });
 
-        lista.forEach(a => {
-            html += `<option value="${a.id}" data-preco="${a.preco}" data-nome="${a.nome}">
-                        ${a.nome} — R$ ${a.preco}
-                     </option>`;
+            selectAcomodacao.innerHTML = html;
+
+            const params = new URLSearchParams(window.location.search);
+            const idUrl = params.get('id');
+            if (idUrl) {
+                selectAcomodacao.value = idUrl;
+                selectAcomodacao.dispatchEvent(new Event('change'));
+            }
         });
-
-        selectAcomodacao.innerHTML = html;
-
-        const params = new URLSearchParams(window.location.search);
-        const idUrl = params.get('id');
-        if (idUrl) {
-            selectAcomodacao.value = idUrl;
-            selectAcomodacao.dispatchEvent(new Event('change'));
-        }
-    };
-
-    xhr.send();
-
-    const params = new URLSearchParams(window.location.search);
-    const idUrl = params.get('id');
-
-    if (idUrl) {
-    }
 
     selectAcomodacao.addEventListener("change", function () {
         const op = this.selectedOptions[0];
@@ -58,9 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         idField.value = op.value;
         precoField.value = op.getAttribute("data-preco");
-
         titulo.textContent = "Alugar: " + op.getAttribute("data-nome");
-
         calcular();
     });
 
@@ -69,17 +54,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const inicio = new Date(inicioEl.value);
         const fim = new Date(fimEl.value);
 
-        if (isNaN(preco) || !inicioEl.value || !fimEl.value) {
+        if (!inicioEl.value || !fimEl.value) {
             valorEl.value = "0.00";
             return;
         }
 
         const diff = (fim - inicio) / (1000 * 60 * 60 * 24);
-
         const total = diff > 0 ? (diff * preco) : 0;
-
         valorEl.value = total.toFixed(2);
-
         atualizarParcelas();
     }
 
@@ -88,12 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function atualizarParcelas() {
         const total = parseFloat(valorEl.value);
-
-        if (isNaN(total) || total <= 0) {
-            valorParcelaEl.value = "0.00";
-            return;
-        }
-
         const parcelas = parseInt(parcelasEl.value);
         valorParcelaEl.value = (total / parcelas).toFixed(2);
     }
@@ -106,7 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (this.value === "pix") {
             areaPix.classList.remove("d-none");
-            // PIX sempre 1 parcela
             parcelasEl.value = "1";
             atualizarParcelas();
         } else if (this.value === "cartao") {
@@ -114,5 +89,4 @@ document.addEventListener("DOMContentLoaded", function () {
             atualizarParcelas();
         }
     });
-
 });
