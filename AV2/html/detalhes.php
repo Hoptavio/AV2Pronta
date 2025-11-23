@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes da Acomodação - Alugel Maneiro</title>
+    <title>Detalhes da Acomodação - Alugo & Rio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <style>
@@ -19,22 +19,7 @@
 
 <body class="d-flex flex-column min-vh-100">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
-        <div class="container-fluid">
-            <a class="navbar-brand fw-bold text-dark" href="index.html">Alugel Maneiro</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="vagas.html">Acomodações</a></li>
-                    <li class="nav-item"><a class="nav-link" href="experiencias.html">Experiências</a></li>
-                    <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <?php include 'navbar.php'; ?>
 
     <div class="container flex-grow-1">
         <div class="row">
@@ -52,19 +37,7 @@
         </div>
     </div>
 
-    <footer class="bg-dark text-light mt-5 py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>Alugel Maneiro</h5>
-                    <p>Encontre a acomodação perfeita para você!</p>
-                </div>
-                <div class="col-md-6 text-end">
-                    <p>&copy; <span id="current-year"></span> Alugel Maneiro. Todos os direitos reservados.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php include 'footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>

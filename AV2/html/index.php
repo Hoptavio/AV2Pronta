@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/carrossel.css">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/carrossel.js" defer></script>
-    <title>Alugel Maneiro - Página Inicial</title>
+    <title>Alugo & Rio - Página Inicial</title>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -99,20 +99,7 @@
         </div>
     </div>
 
-    <footer class="bg-dark text-light py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>Alugel Maneiro</h5>
-                    <p>Encontre a acomodação perfeita para você!</p>
-                </div>
-                <div class="col-md-6 text-end">
-                    <p>&copy; <span id="current-year">2024</span> Alugel Maneiro. Todos os direitos reservados.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+    <?php include 'footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/carrossel.css">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/carrossel.js" defer></script>
-    <title>Alugel Maneiro - Experiências</title>
+    <title>Alugo & Rio - Experiências</title>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -74,7 +74,7 @@
                     <h5 class="card-title">Passeio de Barco </h5>
                     <p class="card-text">Navegue pelas águas cristalinas e descubra paraísos tropicais escondidos.</p>
                     <p class="price">R$ 150,00 / pessoa</p>
-                    <a href="detalhes.html?id=1&title=Passeio%20de%20Barco&desc=Navegue%20pelas%20águas%20cristalinas%20e%20descubra%20paraísos%20tropicais%20escondidos.&price=R$%20150,00%20/%20pessoa&img=https://images.unsplash.com/photo-1506929562872-bb421503ef21&target=experiencia_pagar.html"
+                    <a href="detalhes.html?id=1&title=Passeio%20de%20Barco&desc=Navegue%20pelas%20águas%20cristalinas%20e%20descubra%20paraísos%20tropicais%20escondidos.&price=R$%20150,00%20/%20pessoa&img=https://images.unsplash.com/photo-1506929562872-bb421503ef21&target=experiencia_pagar.php"
                         class="btn btn-primary">Ver Detalhes</a>
                 </div>
             </div>
@@ -86,7 +86,7 @@
                     <h5 class="card-title">Trilha Ecológica com Guia</h5>
                     <p class="card-text">Explore a natureza em sua forma mais pura com guias especializados.</p>
                     <p class="price">R$ 80,00 / pessoa</p>
-                    <a href="detalhes.html?id=2&title=Trilha%20Ecológica%20com%20Guia&desc=Explore%20a%20natureza%20em%20sua%20forma%20mais%20pura%20com%20guias%20especializados.&price=R$%2080,00%20/%20pessoa&img=https://images.unsplash.com/photo-1551632811-561732d1e306&target=experiencia_pagar.html"
+                    <a href="detalhes.html?id=2&title=Trilha%20Ecológica%20com%20Guia&desc=Explore%20a%20natureza%20em%20sua%20forma%20mais%20pura%20com%20guias%20especializados.&price=R$%2080,00%20/%20pessoa&img=https://images.unsplash.com/photo-1551632811-561732d1e306&target=experiencia_pagar.php"
                         class="btn btn-primary">Ver Detalhes</a>
                 </div>
             </div>
@@ -98,7 +98,7 @@
                     <h5 class="card-title">Tour Pelos Museus </h5>
                     <p class="card-text">Conheça a história e cultura local com visitas ao maiores museus do Rio .</p>
                     <p class="price">R$ 120,00 / pessoa</p>
-                    <a href="detalhes.html?id=3&title=Tour%20Pelos%20Museus&desc=Conheça%20a%20história%20e%20cultura%20local%20com%20visitas%20ao%20maiores%20museus%20do%20Rio.&price=R$%20120,00%20/%20pessoa&img=https://images.unsplash.com/photo-1564399579883-451a5d44ec08?q=80&w=737&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&target=experiencia_pagar.html"
+                    <a href="detalhes.html?id=3&title=Tour%20Pelos%20Museus&desc=Conheça%20a%20história%20e%20cultura%20local%20com%20visitas%20ao%20maiores%20museus%20do%20Rio.&price=R$%20120,00%20/%20pessoa&img=https://images.unsplash.com/photo-1564399579883-451a5d44ec08?q=80&w=737&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&target=experiencia_pagar.php"
                         class="btn btn-primary">Ver Detalhes</a>
                 </div>
             </div>
@@ -129,19 +129,7 @@
 
     </div>
 
-    <footer class="bg-dark text-light mt-5 py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>Alugel Maneiro</h5>
-                    <p>Encontre a acomodação perfeita para você!</p>
-                </div>
-                <div class="col-md-6 text-end">
-                    <p>&copy; <span id="current-year">2024</span> Alugel Maneiro. Todos os direitos reservados.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php include 'footer.php'; ?>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>

@@ -20,12 +20,12 @@ CREATE TABLE `acomodacoes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `acomodacoes` (`id`, `nome`, `descricao`, `preco`, `imagem`) VALUES
-(1, 'Chalé à Beira-Mar', 'Encantador chalé com vista para o mar e acesso privativo à praia.', 350.00, 'img/chale.jpg'),
-(2, 'Apartamento no Centro', 'Moderno apartamento no coração da cidade, próximo a todas as atrações.', 250.00, 'img/apto.jpg'),
+(1, 'Casa com piscina', 'Casa exuberante com jardim e piscina.', 350.00, 'img/chale.jpg'),
+(2, 'Apartamento no Centro', 'Moderno apartamento no coração da cidade, próximo a todas as atrações.', 175.00, 'img/apto.jpg'),
 (3, 'Cabana nas Montanhas', 'Aconchegante cabana com lareira e vista deslumbrante para as montanhas.', 280.00, 'img/cabana.jpg'),
-(4, 'Hotel Boutique Histórico', 'Hotel charmoso localizado no centro histórico.', 420.00, 'img/hotel.jpg'),
-(5, 'Vila Familiar com Piscina', 'Casa espaçosa ideal para famílias.', 550.00, 'img/vila.jpg'),
-(6, 'Estúdio Compacto', 'Estúdio pequeno e aconchegante.', 120.00, 'img/estudio.jpg');
+(4, 'Hotel em frente a praia', 'Charmoso hotel com acesso ao mar.', 250.00, 'img/hotel.jpg'),
+(5, 'Lofte', 'Esse Loft oferece conforto e beleza além de fácil acesso a diversos pontos turisticos', 100.00, 'img/vila.jpg'),
+(6, 'Casa contêiner', 'Cassa confortavel de auto custo-beneficio.', 35.00, 'img/estudio.jpg');
 
 CREATE TABLE `aulas` (
   `id` int(11) NOT NULL,
@@ -34,12 +34,12 @@ CREATE TABLE `aulas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `aulas` (`id`, `nome`, `preco`) VALUES
-(1, 'Aula de Dança Local', 90.00),
+(1, 'Treino com personal profissional', 90.00),
 (2, 'Aula de Culinária Regional', 120.00),
-(3, 'Guia Turístico Personalizado', 200.00),
+(3, 'Aula de dança', 60.00),
 (4, 'Aula de Yoga na Natureza', 70.00),
-(5, 'Massagem Relaxante', 150.00),
-(6, 'Sessão de Fotografia', 300.00);
+(5, 'Rainha da bateria', 150.00),
+(6, 'Sessão de Fotografia', 140.00);
 
 CREATE TABLE `experiencias` (
   `id` int(11) NOT NULL,
@@ -50,9 +50,9 @@ CREATE TABLE `experiencias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `experiencias` (`id`, `nome`, `descricao`, `preco`, `imagem`) VALUES
-(1, 'Passeio de Barco nas Ilhas', 'Passeio com paradas em ilhas paradisíacas.', 150.00, 'img/barco.jpg'),
-(2, 'Trilha Ecológica com Guia', 'Trilha guiada em meio à natureza.', 80.00, 'img/trilha.jpg'),
-(3, 'Tour Cultural Histórico', 'Visita guiada por pontos culturais da cidade.', 120.00, 'img/tour.jpg');
+(1, 'Passeio de Barco', 'Navegue pelas águas cristalinas e descubra paraísos tropicais escondidos.', 150.00, 'img/barco.jpg'),
+(2, 'Trilha Ecológica com Guia', 'Explore a natureza em sua forma mais pura com guias especializados.', 80.00, 'img/trilha.jpg'),
+(3, 'Tour Pelos Museus', 'Conheça a história e cultura local com visitas ao maiores museus do Rio .', 120.00, 'img/tour.jpg');
 
 CREATE TABLE `reservas` (
   `id` int(11) NOT NULL,

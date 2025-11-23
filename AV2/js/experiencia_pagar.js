@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     const experienciaSelect = document.getElementById("experiencia");
-    const qtdPessoas = document.getElementById("pessoas");
+    const qtdPessoas = document.getElementById("quantidade");
     const totalInput = document.getElementById("total");
     const form = document.getElementById("formReserva");
 
@@ -10,6 +10,35 @@ document.addEventListener("DOMContentLoaded", function () {
     const areaCartao = document.getElementById("area_cartao");
     const parcelasEl = document.getElementById("parcelas");
     const valorParcelaEl = document.getElementById("valor_parcela");
+
+    fetch("../php/listar_experiencias.php")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(lista => {
+            let html = `<option value="">Selecione...</option>`;
+            lista.forEach(item => {
+                html += `<option value="${item.id}" data-preco="${item.preco}">${item.nome} — R$ ${item.preco}</option>`;
+            });
+            experienciaSelect.innerHTML = html;
+
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            if (id) {
+                experienciaSelect.value = id;
+                const event = new Event('change');
+                experienciaSelect.dispatchEvent(event);
+            }
+        })
+        .catch(error => {
+            console.error("Erro ao carregar experiências:", error);
+            experienciaSelect.innerHTML = `<option value="">Erro ao carregar opções</option>`;
+            alert("Erro ao carregar as experiências. Por favor, recarregue a página.");
+        });
+
 
     function getPrecoSelecionado() {
         const opcao = experienciaSelect.selectedOptions[0];
@@ -64,13 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
     experienciaSelect.addEventListener("change", atualizarTotal);
     qtdPessoas.addEventListener("input", atualizarTotal);
 
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get('id');
-    if (id) {
-        experienciaSelect.value = id;
-        const event = new Event('change');
-        experienciaSelect.dispatchEvent(event);
-    }
+
 
     atualizarTotal();
 

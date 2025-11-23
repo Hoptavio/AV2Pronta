@@ -9,6 +9,9 @@ $email = $_POST['email_cliente'];
 $telefone = $_POST['telefone_cliente'];
 $id_exp = intval($_POST['id_experiencia']);
 $quantidade = intval($_POST['quantidade']);
+$metodo_pagamento = $_POST['metodo_pagamento'];
+$parcelas = intval($_POST['parcelas']);
+$valor_parcela = floatval($_POST['valor_parcela']);
 
 $stmt = $con->prepare("SELECT preco FROM experiencias WHERE id=?");
 $stmt->bind_param("i", $id_exp);
@@ -18,8 +21,8 @@ $stmt->close();
 
 $valor_total = $preco * $quantidade;
 
-$stmt = $con->prepare("UPDATE reservas_experiencias SET id_experiencia=?, nome_cliente=?, email_cliente=?, telefone_cliente=?, quantidade=?, valor_total=? WHERE id=?");
-$stmt->bind_param("isssidi", $id_exp, $nome, $email, $telefone, $quantidade, $valor_total, $id);
+$stmt = $con->prepare("UPDATE reservas_experiencias SET id_experiencia=?, nome_cliente=?, email_cliente=?, telefone_cliente=?, quantidade=?, valor_total=?, metodo_pagamento=?, parcelas=?, valor_parcela=? WHERE id=?");
+$stmt->bind_param("isssidsdii", $id_exp, $nome, $email, $telefone, $quantidade, $valor_total, $metodo_pagamento, $parcelas, $valor_parcela, $id);
 $stmt->execute();
 
 header("Location: ../html/admin_reservas_experiencias.html");

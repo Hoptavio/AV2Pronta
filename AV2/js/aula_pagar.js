@@ -11,6 +11,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const parcelasEl = document.getElementById("parcelas");
     const valorParcelaEl = document.getElementById("valor_parcela");
 
+    fetch("../php/listar_aulas.php")
+        .then(response => response.json())
+        .then(lista => {
+            let html = `<option value="">Selecione...</option>`;
+            lista.forEach(item => {
+                html += `<option value="${item.id}" data-preco="${item.preco}">${item.nome} — R$ ${item.preco}</option>`;
+            });
+            selectAula.innerHTML = html;
+
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            if (id) {
+                selectAula.value = id;
+                const event = new Event('change');
+                selectAula.dispatchEvent(event);
+            }
+        });
+
     function atualizarTotal() {
         const preco = parseFloat(selectAula.selectedOptions[0]?.getAttribute("data-preco")) || 0;
         const qtd = parseInt(quantidadeEl.value) || 0;
@@ -54,13 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     selectAula.addEventListener("change", atualizarTotal);
     quantidadeEl.addEventListener("input", atualizarTotal);
 
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get('id');
-    if (id) {
-        selectAula.value = id;
-        const event = new Event('change');
-        selectAula.dispatchEvent(event);
-    }
+
 
     atualizarTotal();
 

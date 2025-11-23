@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes da Acomodação - Alugel Maneiro</title>
+    <title>Detalhes da Acomodação - Alugo & Rio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <style>
@@ -21,7 +21,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
         <div class="container-fluid">
-            <a class="navbar-brand fw-bold text-dark" href="index.html">Alugel Maneiro</a>
+            <a class="navbar-brand fw-bold text-dark" href="index.html">Alugo & Rio</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -56,11 +56,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h5>Alugel Maneiro</h5>
+                    <h5>Alugo & Rio</h5>
                     <p>Encontre a acomodação perfeita para você!</p>
                 </div>
                 <div class="col-md-6 text-end">
-                    <p>&copy; <span id="current-year"></span> Alugel Maneiro. Todos os direitos reservados.</p>
+                    <p>&copy; <span id="current-year">2024</span> Alugo & Rio. Todos os direitos reservados.</p>
                 </div>
             </div>
         </div>
@@ -70,14 +70,14 @@
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        
+
         const params = new URLSearchParams(window.location.search);
         const id = params.get('id');
         const title = params.get('title');
         const desc = params.get('desc');
         const price = params.get('price');
         const img = params.get('img');
-        const target = params.get('target') || 'alugar.html'; // 
+        const target = params.get('target') || 'alugar.php'; // 
 
         if (title) document.getElementById('detail-title').textContent = title;
         if (desc) document.getElementById('detail-desc').textContent = desc;
@@ -86,7 +86,7 @@
 
         if (id) {
             document.getElementById('btn-alugar').href = `${target}?id=${id}`;
-           
+
             if (target.includes('experiencia')) {
                 document.getElementById('btn-alugar').textContent = "Reservar Experiência";
             } else if (target.includes('aula')) {
