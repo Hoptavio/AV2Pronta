@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const experienciaSelect = document.getElementById("experiencia");
+    const selectExperiencia = document.getElementById("select_experiencia");
+    const idField = document.getElementById("id_experiencia");
     const qtdPessoas = document.getElementById("quantidade");
     const totalInput = document.getElementById("total");
     const form = document.getElementById("formReserva");
+    const titulo = document.getElementById("titulo");
 
     const metodoEl = document.getElementById("metodo_pagamento");
     const areaPix = document.getElementById("area_pix");
@@ -21,27 +23,42 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(lista => {
             let html = `<option value="">Selecione...</option>`;
             lista.forEach(item => {
-                html += `<option value="${item.id}" data-preco="${item.preco}">${item.nome} — R$ ${item.preco}</option>`;
+                html += `<option value="${item.id}" data-preco="${item.preco}" data-nome="${item.nome}">${item.nome} — R$ ${item.preco}</option>`;
             });
-            experienciaSelect.innerHTML = html;
+            selectExperiencia.innerHTML = html;
 
             const params = new URLSearchParams(window.location.search);
             const id = params.get('id');
             if (id) {
-                experienciaSelect.value = id;
+                selectExperiencia.value = id;
                 const event = new Event('change');
-                experienciaSelect.dispatchEvent(event);
+                selectExperiencia.dispatchEvent(event);
             }
         })
         .catch(error => {
             console.error("Erro ao carregar experiências:", error);
-            experienciaSelect.innerHTML = `<option value="">Erro ao carregar opções</option>`;
+            selectExperiencia.innerHTML = `<option value="">Erro ao carregar opções</option>`;
             alert("Erro ao carregar as experiências. Por favor, recarregue a página.");
         });
 
+    selectExperiencia.addEventListener("change", function () {
+        const op = this.selectedOptions[0];
+
+        if (!op.value) {
+            idField.value = "";
+            titulo.textContent = "Finalizar Reserva de Experiência";
+            totalInput.value = "";
+            return;
+        }
+
+        idField.value = op.value;
+        const nome = op.getAttribute("data-nome");
+        titulo.textContent = "Reservar: " + nome;
+        atualizarTotal();
+    });
 
     function getPrecoSelecionado() {
-        const opcao = experienciaSelect.selectedOptions[0];
+        const opcao = selectExperiencia.selectedOptions[0];
         const preco = opcao ? parseFloat(opcao.getAttribute("data-preco")) : 0;
         return isNaN(preco) ? 0 : preco;
     }
@@ -80,6 +97,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (this.value === "pix") {
             areaPix.classList.remove("d-none");
+            parcelasEl.value = "1";
+            atualizarParcelas();
         }
 
         if (this.value === "cartao") {
@@ -90,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     parcelasEl.addEventListener("change", atualizarParcelas);
 
-    experienciaSelect.addEventListener("change", atualizarTotal);
+    selectExperiencia.addEventListener("change", atualizarTotal);
     qtdPessoas.addEventListener("input", atualizarTotal);
 
 
@@ -125,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const resp = xhr.responseText.trim();
             if (resp.includes("OK")) {
                 alert("Reserva realizada com sucesso!");
-                window.location.href = "index.html";
+                window.location.href = "index.php";
             } else {
                 alert("Erro: " + resp);
             }

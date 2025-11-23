@@ -23,12 +23,13 @@ $usuario = obterUsuario();
 
         <form action="../php/registrar_experiencia.php" method="POST" class="card p-4" id="formReserva">
 
+            <input type="hidden" name="id_experiencia" id="id_experiencia">
             <input type="hidden" id="preco" name="preco">
 
             <h4>Experiência</h4>
             <div class="mb-3">
                 <label>Selecione a experiência</label>
-                <select id="experiencia" name="id_experiencia" class="form-control" required>
+                <select id="select_experiencia" class="form-control" required>
                     <option value="">Carregando...</option>
                 </select>
             </div>

@@ -23,12 +23,13 @@ $usuario = obterUsuario();
 
         <form action="../php/registrar_aula.php" method="POST" class="card p-4" id="formAula">
 
+            <input type="hidden" name="id_aula" id="id_aula">
             <input type="hidden" id="preco" name="preco">
 
             <h4>Aula / Serviço</h4>
             <div class="mb-3">
-                <label>Selecione</label>
-                <select id="aula" name="id_aula" class="form-control" required>
+                <label>Selecione a aula</label>
+                <select id="select_aula" class="form-control" required>
                     <option value="">Carregando...</option>
                 </select>
             </div>

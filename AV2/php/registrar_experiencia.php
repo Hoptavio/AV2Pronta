@@ -25,7 +25,7 @@ $sql = "INSERT INTO reservas_experiencias (id_experiencia, nome_cliente, email_c
         $quantidade, $valor_total, {$usuario['id']}, '$metodo_pagamento', $parcelas, '$valor_parcela')";
 
 if ($con->query($sql)) {
-    echo "<script>alert('Reserva de experiência concluída!'); window.location.href='../html/index.php';</script>";
+    echo "OK";
 } else {
     echo "Erro: " . $con->error;
 }

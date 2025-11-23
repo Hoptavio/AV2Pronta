@@ -25,7 +25,7 @@ $sql = "INSERT INTO reservas_aulas (id_aula, nome_cliente, email_cliente, telefo
         $quantidade, $valor_total, {$usuario['id']}, '$metodo_pagamento', $parcelas, '$valor_parcela')";
 
 if ($con->query($sql)) {
-    echo "<script>alert('Reserva de aula concluída!'); window.location.href='../html/index.php';</script>";
+    echo "OK";
 } else {
     echo "Erro: " . $con->error;
 }

@@ -73,7 +73,7 @@
                     <h5 class="card-title">Casa com piscina</h5>
                     <p class="card-text">Casa exuberante com jardim e piscina.</p>
                     <p class="price">R$ 350,00 / noite</p>
-                    <a href="detalhes.html?id=1&title=Casa%20com%20piscina&desc=Casa%20exuberante%20com%20jardim%20e%20piscina.&price=R$%20350,00%20/%20noite&img=https://images.unsplash.com/photo-1564013799919-ab600027ffc6"
+                    <a href="detalhes.php?id=1&title=Casa%20com%20piscina&desc=Casa%20exuberante%20com%20jardim%20e%20piscina.&price=R$%20350,00%20/%20noite&img=https://images.unsplash.com/photo-1564013799919-ab600027ffc6"
                         class="btn btn-primary">Ver Detalhes</a>
                 </div>
             </div>
@@ -85,7 +85,7 @@
                     <h5 class="card-title">Apartamento no Centro</h5>
                     <p class="card-text">Moderno apartamento no coração da cidade, próximo a todas as atrações.</p>
                     <p class="price">R$ 175,00 / noite</p>
-                    <a href="detalhes.html?id=2&title=Apartamento%20no%20Centro&desc=Moderno%20apartamento%20no%20coração%20da%20cidade,%20próximo%20a%20todas%20as%20atrações.&price=R$%20175,00%20/%20noite&img=https://images.unsplash.com/photo-1522708323590-d24dbb6b0267"
+                    <a href="detalhes.php?id=2&title=Apartamento%20no%20Centro&desc=Moderno%20apartamento%20no%20coração%20da%20cidade,%20próximo%20a%20todas%20as%20atrações.&price=R$%20175,00%20/%20noite&img=https://images.unsplash.com/photo-1522708323590-d24dbb6b0267"
                         class="btn btn-primary">Ver Detalhes</a>
                 </div>
             </div>
@@ -97,7 +97,7 @@
                     <h5 class="card-title">Cabana nas Montanhas</h5>
                     <p class="card-text">Aconchegante cabana com lareira e vista deslumbrante para as montanhas.</p>
                     <p class="price">R$ 280,00 / noite</p>
-                    <a href="detalhes.html?id=3&title=Cabana%20nas%20Montanhas&desc=Aconchegante%20cabana%20com%20lareira%20e%20vista%20deslumbrante%20para%20as%20montanhas.&price=R$%20280,00%20/%20noite&img=https://plus.unsplash.com/premium_photo-1686090450574-214118216bdc?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    <a href="detalhes.php?id=3&title=Cabana%20nas%20Montanhas&desc=Aconchegante%20cabana%20com%20lareira%20e%20vista%20deslumbrante%20para%20as%20montanhas.&price=R$%20280,00%20/%20noite&img=https://plus.unsplash.com/premium_photo-1686090450574-214118216bdc?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         class="btn btn-primary">Ver Detalhes</a>
                 </div>
             </div>
@@ -109,7 +109,7 @@
                     <h5 class="card-title">Hotel em frente a praia</h5>
                     <p class="card-text">Charmoso hotel com acesso ao mar.</p>
                     <p class="price">R$ 250,00 / noite</p>
-                    <a href="detalhes.html?id=4&title=Hotel%20em%20frente%20a%20praia&desc=Charmoso%20hotel%20com%20acesso%20ao%20mar.&price=R$%20250,00%20/%20noite&img=https://images.unsplash.com/photo-1674216644907-8c9092f33251?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    <a href="detalhes.php?id=4&title=Hotel%20em%20frente%20a%20praia&desc=Charmoso%20hotel%20com%20acesso%20ao%20mar.&price=R$%20250,00%20/%20noite&img=https://images.unsplash.com/photo-1674216644907-8c9092f33251?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         class="btn btn-primary">Ver Detalhes</a>
                 </div>
             </div>
@@ -122,7 +122,7 @@
                     <p class="card-text">Esse Loft oferece conforto e beleza além de fácil acesso a diversos pontos
                         turisticos</p>
                     <p class="price">R$ 100,00 / noite</p>
-                    <a href="detalhes.html?id=5&title=Lofte&desc=Esse%20Loft%20oferece%20conforto%20e%20beleza%20além%20de%20fácil%20acesso%20a%20diversos%20pontos%20turisticos&price=R$%20100,00%20/%20noite&img=https://images.unsplash.com/photo-1668438712649-ffd85f756de5?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    <a href="detalhes.php?id=5&title=Lofte&desc=Esse%20Loft%20oferece%20conforto%20e%20beleza%20além%20de%20fácil%20acesso%20a%20diversos%20pontos%20turisticos&price=R$%20100,00%20/%20noite&img=https://images.unsplash.com/photo-1668438712649-ffd85f756de5?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         class="btn btn-primary">Ver Detalhes</a>
                 </div>
             </div>
@@ -134,7 +134,7 @@
                     <h5 class="card-title">Casa contêiner</h5>
                     <p class="card-text">Cassa confortavel de auto custo-beneficio.</p>
                     <p class="price">R$ 35,00 / noite</p>
-                    <a href="detalhes.html?id=6&title=Casa%20contêiner&desc=Cassa%20confortavel%20de%20auto%20custo-beneficio.&price=R$%2035,00%20/%20noite&img=https://plus.unsplash.com/premium_photo-1663090645309-20260a359602?q=80&w=888&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    <a href="detalhes.php?id=6&title=Casa%20contêiner&desc=Cassa%20confortavel%20de%20auto%20custo-beneficio.&price=R$%2035,00%20/%20noite&img=https://plus.unsplash.com/premium_photo-1663090645309-20260a359602?q=80&w=888&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         class="btn btn-primary">Ver Detalhes</a>
                 </div>
             </div>
